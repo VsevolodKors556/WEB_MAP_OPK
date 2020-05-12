@@ -45,11 +45,23 @@ function onMapClick(e) {
   console.log(e.latlng);
   var popup = L.popup()
     .setLatLng(e.latlng)
-  /* .setContent(`${e.latlng.lat}, ${e.latlng.lng}`)
-    .openOn(map);*/
+   .setContent(`${e.latlng.lat}, ${e.latlng.lng}`)
+    .openOn(map);
 }
+// Создание полигонов
+var createPolygon = async data => {
+  var polygon = L.polygon([JSON.parse(data.coords)], {
+    name: data.name,
+    fillColor: "blue"
+  }).addTo(map);
+  polygon.dataid = data.id;
+  //Отображение данных по клику
+      polygon.on('click', () => {
+      map.on("click", onMapClick);          
+  }); 
+};
 
-map.on("click", onMapClick);
+
 
 map.setView(center, zoom);
 
@@ -73,18 +85,7 @@ var createOption = data => {
 };
 
 
-// Создание полигонов
-var createPolygon = async data => {
-  var polygon = L.polygon([JSON.parse(data.coords)], {
-    name: data.name,
-    fillColor: "blue"
-  }).addTo(map);
-  polygon.dataid = data.id;
-  //Отображение данных по клику
-      polygon.on('click', () => {
-        console.log(data.num)
-  }); 
-};
+
 
 $(document).ready(() => {
   floor = 3; // меняем на номер этажа
