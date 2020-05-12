@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Floor 4</title>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />  
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="./../public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<link rel="stylesheet" href="./../index/style.css">
+</head>
+<body>
+  <div class="container">
+  <div class="row">
+    <div class="col-4">
+      <label for="start">Начальная точка</label>
+      <br>
+      <select name="start" id="start" class="all" style="width: 100%"></select>
+    </div>
+    <div class="col-4">
+      <label for="end">Конечная точка</label>
+      <br>
+      <select name="end" id="end" class="all" style="width: 100%"></select>
+    </div>
+    <div class="col-4">
+      <br>
+      <button type="button" class="btn btn-large btn-block btn-success" id="find">Найти</button>
+      
+    </div>
+    <div id="map" style="background-color:White; height: 80vh;"/>
+  </div>
+  
+  <div class="form-check form-check-inline">
+    <input class="form-check-input rb" type="radio" name="inlineRadioOptions" id="f1" value="1">
+    <label class="form-check-label" for="inlineRadio1">1</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input rb" type="radio" name="inlineRadioOptions" id="f2" value="2">
+    <label class="form-check-label" for="inlineRadio2">2</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input rb" type="radio" name="inlineRadioOptions" id="f3" value="3">
+    <label class="form-check-label" for="inlineRadio3">3</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input rb" type="radio" name="inlineRadioOptions" id="f4" value="4">
+    <label class="form-check-label" for="inlineRadio3">4</label>
+  </div>
+
+
+<a type="button" class="btn btn-success" id="go">Перейти</a>
+
+  </div>
+
+
+ 
+  
+  <script src="./../public/js/jquery-3.3.1.min.js"></script>
+  <script src="./../public/js/socket.io.js"></script>
+  <script src="./../public/js/async.min.js"></script>
+  <script src="./../index/leaflet.js"></script>
+  <script src="./../index/func4.js"></script>
+</body>
+</html>
