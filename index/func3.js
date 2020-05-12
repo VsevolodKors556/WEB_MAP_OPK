@@ -35,7 +35,7 @@ L.tileLayer(image + "/{z}-{x}-{y}.jpg", {
   noWrap: true,
   bounds: bounds,
   attribution:
-    '<a href="https://github.com/oliverheilig/LeafletPano">LeafletPano</a>'
+    '<a href="https://github.com/oliverheilig/LeafletPano"></a>'
 }).addTo(map);
 
 var zoom = map.getBoundsZoom(bounds);
