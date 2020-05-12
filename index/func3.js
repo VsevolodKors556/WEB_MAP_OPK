@@ -72,14 +72,17 @@ var createOption = data => {
   $(`<option>${data.num}</option>`).appendTo("#end");
 };
 
+
+// Создание полигонов
 var createPolygon = async data => {
   var polygon = L.polygon([JSON.parse(data.coords)], {
     name: data.name,
     fillColor: "blue"
   }).addTo(map);
   polygon.dataid = data.id;
+  //Отображение данных по клику
       polygon.on('click', () => {
-        console.log(polygon.num)
+        console.log(data.num)
   }); 
 };
 
