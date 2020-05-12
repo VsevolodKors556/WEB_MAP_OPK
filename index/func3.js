@@ -44,8 +44,8 @@ var center = new L.latLng(centerLat, centerLon);
 function onMapClick(e) {
   console.log(e.latlng);
   var popup = L.popup()
-    /*.setLatLng(e.latlng)
-    .setContent(`${e.latlng.lat}, ${e.latlng.lng}`)
+    .setLatLng(e.latlng)
+  /* .setContent(`${e.latlng.lat}, ${e.latlng.lng}`)
     .openOn(map);*/
 }
 
@@ -78,8 +78,9 @@ var createPolygon = async data => {
     fillColor: "blue"
   }).addTo(map);
   polygon.dataid = data.id;
-  /*     polygon.on('click', () => {
-  }); */
+      polygon.on('click', () => {
+        console.log(polygon.num)
+  }); 
 };
 
 $(document).ready(() => {
