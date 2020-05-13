@@ -62,7 +62,7 @@ var createPolygon = async data => {
   }); 
 };
 
-//map.on("click", onMapClick); 
+map.on("click", onMapClick); 
 
 map.setView(center, zoom);
 
