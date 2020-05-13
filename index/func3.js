@@ -56,9 +56,9 @@ var createPolygon = async data => {
   }).addTo(map);
   polygon.dataid = data.id;
   //Отображение данных по клику на полигон
-      polygon.on('click', () => {
+    polygon.on('click', () => {
       
-      console.log(data.num)         
+    console.log(data.num)         
   }); 
 };
 
