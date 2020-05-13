@@ -57,7 +57,7 @@ var createPolygon = async data => {
   polygon.dataid = data.id;
   //Отображение данных по клику на полигон
     polygon.on('click', () => {
-      
+    
     console.log(data.num)         
   }); 
 };
@@ -66,7 +66,7 @@ map.on("click", onMapClick);
 
 map.setView(center, zoom);
 
-/*// отправка POST запросов 
+/* отправка POST запросов 
 var get_data = params => {
   const result = $.ajax({
     type: "POST",
