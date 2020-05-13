@@ -16,6 +16,9 @@ app.use("/index/Floor3/", express.static("./index/Floor3/"));
 app.use("/index/Floor4/", express.static("./index/Floor4/"));
 app.use("/index/", express.static("./index/"));
 
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname + "/index/index.html"));
+});
 
 app.get("/1", function(req, res) {
   res.sendFile(path.join(__dirname + "/index/index.html"));

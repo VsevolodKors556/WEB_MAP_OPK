@@ -42,7 +42,7 @@ var zoom = map.getBoundsZoom(bounds);
 var center = new L.latLng(centerLat, centerLon);
 
 function onMapClick(e) {
-  console.log(e.latlng);
+  //console.log(e.latlng);
   var popup = L.popup()
     .setLatLng(e.latlng)
    .setContent(`${e.latlng.lat}, ${e.latlng.lng}`)
@@ -55,13 +55,14 @@ var createPolygon = async data => {
     fillColor: "blue"
   }).addTo(map);
   polygon.dataid = data.id;
-  //Отображение данных по клику
+  //Отображение данных по клику на полигон
       polygon.on('click', () => {
-      map.on("click", onMapClick);          
+      
+      console.log(data.num)         
   }); 
 };
 
-
+//map.on("click", onMapClick); 
 
 map.setView(center, zoom);
 
