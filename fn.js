@@ -18,3 +18,15 @@ exports.FindRoute = async params => {
   });
   return defer.promise
 };
+ 
+
+exports.getData = async cab =>{
+  let defer = q.defer();
+  let sql = `SELECT par FROM rasp WHERE aud=${cab}`;
+  console.log("sql", sql)
+  query.selectDB2(sql).then(res => {
+
+    defer.resolve(res.data);
+  });
+  return defer.promise;
+};

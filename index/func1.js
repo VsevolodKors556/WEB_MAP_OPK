@@ -27,6 +27,8 @@ var bounds = [
 
 var map = new L.Map("map", { maxBounds: bounds });
 
+
+
 L.tileLayer(image + "/{z}-{x}-{y}.jpg", {
   maxZoom: maxLevel,
   minZoom: minLevel,
@@ -100,6 +102,7 @@ $(document).ready(() => {
     $('#go').attr('href', `/${count}`) 
   })
 });
+
 var polyline = null
 var find = () => {
   if(polyline)

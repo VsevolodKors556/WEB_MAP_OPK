@@ -40,13 +40,14 @@ L.tileLayer(image + "/{z}-{x}-{y}.jpg", {
 
 var zoom = map.getBoundsZoom(bounds);
 var center = new L.latLng(centerLat, centerLon);
-
+ 
 function getDataofcabinet(cab){
-  c=`<div align=''center>Кабинет: ${cab}</div>`
+  c=`<div align="center">Кабинет: ${cab}</div>`
+  socket.emit("getData", cab ,res =>{
+console.log(res)
+  })
   return(c)
 }
-
-
 
 // Создание полигонов
 var createPolygon = async data => {
@@ -62,12 +63,13 @@ var createPolygon = async data => {
       .setLatLng(e.latlng)
      .setContent(getDataofcabinet(data.num))
       .openOn(map);
-      }
-    console.log(data.num)         
+      }else{var popup = L.popup()
+        .setLatLng(e.latlng)
+       .setContent('<p>Центральная Лестница</p>')
+        .openOn(map);}
+    //console.log(data.num)         
   }); 
 };
-
-
 
 map.setView(center, zoom);
 
@@ -90,9 +92,6 @@ var createOption = data => {
   $(`<option>${data.num}</option>`).appendTo("#end");
 };
 
-
-
-
 $(document).ready(() => {
   floor = 3; // меняем на номер этажа
   socket.emit("getAllCabinet", floor, res => {
@@ -111,7 +110,9 @@ $(document).ready(() => {
     $('#go').attr('href', `/${count}`) 
   })
 });
+
 var polyline = null
+
 var find = () => {
   if(polyline)
     map.removeLayer(polyline) 

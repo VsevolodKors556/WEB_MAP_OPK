@@ -56,4 +56,11 @@ io.on("connection", function(socket) {
       callback(res)
     })
   })
+
+socket.on('getData', (cab, callback) => {
+    fn.getData(cab).then(res => {
+      callback(res)
+    })
+
+  })
 });
