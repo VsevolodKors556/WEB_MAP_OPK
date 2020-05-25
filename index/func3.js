@@ -41,7 +41,10 @@ L.tileLayer(image + "/{z}-{x}-{y}.jpg", {
 var zoom = map.getBoundsZoom(bounds);
 var center = new L.latLng(centerLat, centerLon);
 
-
+function getDataofcabinet(cab){
+  c=`<div align=''center>Кабинет: ${cab}</div>`
+  return(c)
+}
 
 
 
@@ -57,7 +60,7 @@ var createPolygon = async data => {
       if (data.num!='Центральная Лестница'){
       var popup = L.popup()
       .setLatLng(e.latlng)
-     .setContent("<p>Hello world!<br />This is a nice popup.</p>")
+     .setContent(getDataofcabinet(data.num))
       .openOn(map);
       }
     console.log(data.num)         
