@@ -41,13 +41,10 @@ L.tileLayer(image + "/{z}-{x}-{y}.jpg", {
 var zoom = map.getBoundsZoom(bounds);
 var center = new L.latLng(centerLat, centerLon);
 
-function onMapClick(e) {
-  //console.log(e.latlng);
-  var popup = L.popup()
-    .setLatLng(e.latlng)
-   .setContent(`${e.latlng.lat}, ${e.latlng.lng}`)
-    .openOn(map);
-}
+
+
+
+
 // Создание полигонов
 var createPolygon = async data => {
   var polygon = L.polygon([JSON.parse(data.coords)], {
@@ -56,13 +53,18 @@ var createPolygon = async data => {
   }).addTo(map);
   polygon.dataid = data.id;
   //Отображение данных по клику на полигон
-    polygon.on('click', () => {
-    
+    polygon.on('click', (e) => {
+      if (data.num!='Центральная Лестница'){
+      var popup = L.popup()
+      .setLatLng(e.latlng)
+     .setContent("<p>Hello world!<br />This is a nice popup.</p>")
+      .openOn(map);
+      }
     console.log(data.num)         
   }); 
 };
 
-map.on("click", onMapClick); 
+
 
 map.setView(center, zoom);
 
