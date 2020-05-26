@@ -9,20 +9,42 @@
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <link rel="stylesheet" href="./../index/style.css">
 <link rel="stylesheet" href="./../index/table.css">
+
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400'>
+<link rel="stylesheet" href="style1.css">
+
 </head>
 <body>
   <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="select_mate" data-mate-select="active">
       <label for="start">Начальная точка</label>
       <br>
-      <select name="start" id="start" class="all" style="width: 100%"></select>
+      <select name="start" id="start" class="all"  onclick="return false;" style="width: 100%"></select>
+      <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+        <path d="M0-.75h24v24H0z" fill="none"/>
+    </svg></span>
+    <div class="cont_list_select_mate">
+      <ul class="cont_select_int">  </ul> 
     </div>
-    <div class="col-4">
+    </div>
+
+
+    <div class="select_mate" data-mate-select="active">
       <label for="end">Конечная точка</label>
       <br>
-      <select name="end" id="end" class="all" style="width: 100%"></select>
+      <select name="end" id="end" class="all" onclick="return false;" style="width: 100%"></select>
+      <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+        <path d="M0-.75h24v24H0z" fill="none"/>
+    </svg></span>
+    <div class="cont_list_select_mate">
+      <ul class="cont_select_int">  </ul> 
     </div>
+    </div>
+
+
     <div class="col-4">
       <br>
       <button type="button" class="btn btn-large btn-block btn-success" id="find">Найти</button>
@@ -61,5 +83,6 @@
   <script src="./../public/js/async.min.js"></script>
   <script src="./../index/leaflet.js"></script>
   <script src="./../index/func1.js"></script>
+  <script src="index1.js"></script>
 </body>
 </html>
