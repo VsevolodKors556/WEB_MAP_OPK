@@ -51,7 +51,7 @@ function onMapClick(e) {
     .openOn(map);*/
 }
 
-<<<<<<< HEAD
+
 // Создание полигонов
 var createPolygon = async data => {
   var polygon = L.polygon([JSON.parse(data.coords)], {
@@ -77,9 +77,9 @@ var createPolygon = async data => {
     console.log(data.num)         
   }); 
 };
-=======
+
 map.on("click", onMapClick);
->>>>>>> parent of 4fb5cad... 123
+
 
 map.setView(center, zoom);
 
