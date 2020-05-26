@@ -1,3 +1,5 @@
+//import { DATE } from "mysql2/lib/constants/types";
+
 var image = "./../index/Floor3";
 var width = 2528;
 var height = 2613;
@@ -43,10 +45,23 @@ var center = new L.latLng(centerLat, centerLon);
  
 function getDataofcabinet(cab){
   c=`<div align="center">Кабинет: ${cab}</div>`
-  socket.emit("getData", cab ,res =>{
+  /*socket.emit("getData", cab ,res =>{
 console.log(res)
-  })
-  return(c)
+  })*/
+  var now = new Date();
+ date =`<div align="center">26 мая 2020г.</div>`
+table=`<div class="datagrid"><table>
+<thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
+<tbody><tr><td>1</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
+<tr class="alt"><td>2</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
+<tr><td>3</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
+<tr class="alt"><td>4</td><td></td><td></td><td></td></tr>
+<tr><td>5</td><td></td><td></td><td></td></tr>
+<tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>`
+  x=c+date+table
+  return(x)
 }
 
 // Создание полигонов
@@ -67,7 +82,7 @@ var createPolygon = async data => {
         .setLatLng(e.latlng)
        .setContent('<p>Центральная Лестница</p>')
         .openOn(map);}
-    //console.log(data.num)         
+    console.log(data.num)         
   }); 
 };
 
