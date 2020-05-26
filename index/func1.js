@@ -27,8 +27,6 @@ var bounds = [
 
 var map = new L.Map("map", { maxBounds: bounds });
 
-
-
 L.tileLayer(image + "/{z}-{x}-{y}.jpg", {
   maxZoom: maxLevel,
   minZoom: minLevel,
@@ -37,20 +35,32 @@ L.tileLayer(image + "/{z}-{x}-{y}.jpg", {
   noWrap: true,
   bounds: bounds,
   attribution:
-    '<a href="https://github.com/oliverheilig/LeafletPano">LeafletPano</a>'
+    '<a href="https://github.com/oliverheilig/LeafletPano"></a>'
 }).addTo(map);
 
 var zoom = map.getBoundsZoom(bounds);
 var center = new L.latLng(centerLat, centerLon);
-
-function onMapClick(e) {
-  console.log(e.latlng);
-  var popup = L.popup()
-  /*  .setLatLng(e.latlng)
-    .setContent(`${e.latlng.lat}, ${e.latlng.lng}`)
-    .openOn(map);*/
+ 
+function getDataofcabinet(cab){
+  c=`<div align="center">Кабинет: ${cab}</div>`
+  /*socket.emit("getData", cab ,res =>{
+console.log(res)
+  })*/
+  var now = new Date();
+ date =`<div align="center">26 мая 2020г.</div>`
+table=`<div class="datagrid"><table>
+<thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
+<tbody><tr><td>1</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
+<tr class="alt"><td>2</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
+<tr><td>3</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
+<tr class="alt"><td>4</td><td></td><td></td><td></td></tr>
+<tr><td>5</td><td></td><td></td><td></td></tr>
+<tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>`
+  x=c+date+table
+  return(x)
 }
-
 
 // Создание полигонов
 var createPolygon = async data => {
@@ -78,12 +88,9 @@ var createPolygon = async data => {
   }); 
 };
 
-map.on("click", onMapClick);
-
-
 map.setView(center, zoom);
 
-/*// отправка POST запросов 
+/* отправка POST запросов 
 var get_data = params => {
   const result = $.ajax({
     type: "POST",
@@ -100,16 +107,6 @@ var floor;
 var createOption = data => {
   $(`<option>${data.num}</option>`).appendTo("#start");
   $(`<option>${data.num}</option>`).appendTo("#end");
-};
-
-var createPolygon = async data => {
-  var polygon = L.polygon([JSON.parse(data.coords)], {
-    name: data.name,
-    fillColor: "blue"
-  }).addTo(map);
-  polygon.dataid = data.id;
-  /*     polygon.on('click', () => {
-  }); */
 };
 
 $(document).ready(() => {
@@ -132,6 +129,7 @@ $(document).ready(() => {
 });
 
 var polyline = null
+
 var find = () => {
   if(polyline)
     map.removeLayer(polyline) 

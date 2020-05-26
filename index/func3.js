@@ -43,10 +43,23 @@ var center = new L.latLng(centerLat, centerLon);
  
 function getDataofcabinet(cab){
   c=`<div align="center">Кабинет: ${cab}</div>`
-  socket.emit("getData", cab ,res =>{
+  /*socket.emit("getData", cab ,res =>{
 console.log(res)
-  })
-  return(c)
+  })*/
+  var now = new Date();
+ date =`<div align="center">26 мая 2020г.</div>`
+table=`<div class="datagrid"><table>
+<thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
+<tbody><tr><td>1</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
+<tr class="alt"><td>2</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
+<tr><td>3</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
+<tr class="alt"><td>4</td><td></td><td></td><td></td></tr>
+<tr><td>5</td><td></td><td></td><td></td></tr>
+<tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>`
+  x=c+date+table
+  return(x)
 }
 
 // Создание полигонов
@@ -58,16 +71,20 @@ var createPolygon = async data => {
   polygon.dataid = data.id;
   //Отображение данных по клику на полигон
     polygon.on('click', (e) => {
-      if (data.num!='Центральная Лестница'){
-      var popup = L.popup()
+      if (data.num!='Центральная Лестница' && data.num!='Центральный выход'){
+        var popup = L.popup()
       .setLatLng(e.latlng)
      .setContent(getDataofcabinet(data.num))
       .openOn(map);
-      }else{var popup = L.popup()
+      }
+      else{
+        if (data.num=='Центральная Лестница'){k='Центральная Лестница'}
+      else{k='Центральный выход'}
+        var popup = L.popup()
         .setLatLng(e.latlng)
-       .setContent('<p>Центральная Лестница</p>')
-        .openOn(map);}
-    //console.log(data.num)         
+     .setContent(`<p>${k}</p>`)
+      .openOn(map);}
+    console.log(data.num)         
   }); 
 };
 
