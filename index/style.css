@@ -9,3 +9,39 @@ html, body, #map
     width: 100%;
 }
 
+
+.font{
+    font-family: 'Didact Gothic', sans-serif;
+  color: #555555;
+  font-size: 14px;
+  line-height: 22px;
+  margin-left: 20px;
+}
+
+#fon{
+    background-color:#424949;
+    border-radius: 2%;
+}
+
+#map{
+    border-radius: 2%;
+}
+
+#pages{
+    margin: auto;
+}
+
+.col-2{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.all{
+    width: 100%;
+    border-radius: 10px;
+
+}
+

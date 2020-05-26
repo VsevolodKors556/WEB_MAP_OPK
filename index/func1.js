@@ -175,9 +175,9 @@ $(document).ready(() => {
     find()
   })
 
-  $(".rb").on('change', el => {
+  $('.rb').click(el =>  {
   count =   $(el.target).val()
-    $('#go').attr('href', `/${count}`) 
+    $(location).attr('href',`/${count}`)
   })
 });
 

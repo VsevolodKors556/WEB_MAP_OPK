@@ -9,58 +9,47 @@
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <link rel="stylesheet" href="./../index/style.css">
 <link rel="stylesheet" href="./../index/table.css">
-
 </head>
 <body>
-  <div class="container">
+  <br>
+  <div class="container" id='fon'>
   <div class="row">
-    <div class="col-4">
-      <label for="start">Начальная точка</label>
+
+    <div class="col-2">
+      <label for="start" class='font'>Начальная точка</label>
       <br>
       <select name="start" id="start" class="all"></select>
     </div>
-
-
-    <div class="col-4">
-      <label for="end">Конечная точка</label>
+    <div class="col-2">
+      <label for="end" class="font">Конечная точка</label>
       <br>
-      <select name="end" id="end" class="all"  style="width: 100%"></select>
+      <select name="end" id="end" class="all"></select>
     </div>
-
-
-    <div class="col-4">
+    <div class="col-2">
       <br>
       <button type="button" class="btn btn-large btn-block btn-success" id="find">Найти</button>
-      
+      <br>
     </div>
-    <div id="map" style="background-color:White; height: 80vh;"/>
+    <div id="map" style="background-color:White; height: 80vh; width:98%; margin: auto;"/>
   </div>
-  
+  <br>
+  <br>
+</div>
+  <div class='pages'>
   <div class="form-check form-check-inline">
-    <input class="form-check-input rb" type="radio" name="inlineRadioOptions" id="f1" value="1">
-    <label class="form-check-label" for="inlineRadio1">1</label>
-  </div>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input rb" type="radio" name="inlineRadioOptions" id="f2" value="2">
-    <label class="form-check-label" for="inlineRadio2">2</label>
+    <button class="btn btn-success rb" href="/" name="inlineRadioOptions"  value="1" disabled>1</button>
   </div>
   <div class="form-check form-check-inline">
-    <input class="form-check-input rb" type="radio" name="inlineRadioOptions" id="f3" value="3">
-    <label class="form-check-label" for="inlineRadio3">3</label>
+    <button class="btn btn-success rb" href="/" name="inlineRadioOptions"  value="2">2</button>
   </div>
   <div class="form-check form-check-inline">
-    <input class="form-check-input rb" type="radio" name="inlineRadioOptions" id="f4" value="4">
-    <label class="form-check-label" for="inlineRadio3">4</label>
+    <button class="btn btn-success rb" href="/" name="inlineRadioOptions"  value="3">3</button>
   </div>
-
-
-<a type="button" class="btn btn-success" id="go">Перейти</a>
+  <div class="form-check form-check-inline">
+    <button class="btn btn-success rb" href="/" name="inlineRadioOptions" value="4">4</button>
 
   </div>
-
-
- 
-  
+  </div> 
   <script src="./../public/js/jquery-3.3.1.min.js"></script>
   <script src="./../public/js/socket.io.js"></script>
   <script src="./../public/js/async.min.js"></script>
