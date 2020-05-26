@@ -118,7 +118,7 @@ table=`<div class="datagrid"><table>
 var createPolygon = async data => {
   var polygon = L.polygon([JSON.parse(data.coords)], {
     name: data.name,
-    fillColor: "blue"
+    fillColor:"#0070A8"
   }).addTo(map);
   polygon.dataid = data.id;
   //Отображение данных по клику на полигон

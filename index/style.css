@@ -20,11 +20,11 @@ html, body, #map
 
 #fon{
     background-color:#424949;
-    border-radius: 2%;
+    border-radius: 15px;
 }
 
 #map{
-    border-radius: 2%;
+    border-radius: 15px;
 }
 
 #pages{
