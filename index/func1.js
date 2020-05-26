@@ -51,6 +51,7 @@ function onMapClick(e) {
     .openOn(map);*/
 }
 
+<<<<<<< HEAD
 
 // Создание полигонов
 var createPolygon = async data => {
@@ -77,6 +78,9 @@ var createPolygon = async data => {
     console.log(data.num)         
   }); 
 };
+=======
+map.on("click", onMapClick);
+>>>>>>> parent of 4fb5cad... 123
 
 map.on("click", onMapClick);
 
