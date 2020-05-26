@@ -41,13 +41,65 @@ L.tileLayer(image + "/{z}-{x}-{y}.jpg", {
 var zoom = map.getBoundsZoom(bounds);
 var center = new L.latLng(centerLat, centerLon);
  
+function getDate(){
+  var date = new Date();
+  weekday = date.getDay()
+  switch(weekday){
+    case 0:weekday='Воскресенье';
+    break;
+    case 1:weekday='Понедельник';
+    break;
+    case 2:weekday='Вторник';
+    break;
+    case 3:weekday='Среда';
+    break;
+    case 4:weekday='Четверг';
+    break;
+    case 5:weekday='Пятница';
+    break;
+    case 6:weekday='Суббота';
+    break;
+  }
+  day = date.getDate()
+  month = date.getMonth()
+  switch(month){
+    case 0 :month='Января';
+    break;
+    case 1 :month='Февраля';
+    break;
+    case 2 :month='Марта';
+    break;
+    case 3 :month='Апреля';
+    break;
+    case 4 :month='Мая';
+    break;
+    case 5 :month='Июня';
+    break;
+    case 6 :month='Июля';
+    break;
+    case 7 :month='Августа';
+    break;
+    case 8 :month='Сентября';
+    break;
+    case 9 :month='Октября';
+    break;
+    case 10 :month='Ноября';
+    break;
+    case 11 :month='Декабря';
+    break;
+  }
+  year = date.getFullYear()
+ datex =`<div align="center">${weekday} , ${day} ${month} ${year}г.</div>`
+ return(datex)
+}
+
+
 function getDataofcabinet(cab){
   c=`<div align="center">Кабинет: ${cab}</div>`
   /*socket.emit("getData", cab ,res =>{
 console.log(res)
   })*/
-  var now = new Date();
- date =`<div align="center">26 мая 2020г.</div>`
+  date = getDate()
 table=`<div class="datagrid"><table>
 <thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
 <tbody><tr><td>1</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
@@ -80,9 +132,10 @@ var createPolygon = async data => {
       else{
         if (data.num=='Центральная Лестница'){k='Центральная Лестница'}
       else{k='Центральный выход'}
+        date = getDate()
         var popup = L.popup()
         .setLatLng(e.latlng)
-     .setContent(`<p>${k}</p>`)
+     .setContent(`<div align="center">${k}</div><div align="center">${date}</div>`)
       .openOn(map);}
     console.log(data.num)         
   }); 
