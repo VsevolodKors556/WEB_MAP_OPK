@@ -40,67 +40,67 @@ L.tileLayer(image + "/{z}-{x}-{y}.jpg", {
 
 var zoom = map.getBoundsZoom(bounds);
 var center = new L.latLng(centerLat, centerLon);
- 
-function getDate(){
+
+function getDate() {
   var date = new Date();
   weekday = date.getDay()
-  switch(weekday){
-    case 0:weekday='Воскресенье';
-    break;
-    case 1:weekday='Понедельник';
-    break;
-    case 2:weekday='Вторник';
-    break;
-    case 3:weekday='Среда';
-    break;
-    case 4:weekday='Четверг';
-    break;
-    case 5:weekday='Пятница';
-    break;
-    case 6:weekday='Суббота';
-    break;
+  switch (weekday) {
+    case 0: weekday = 'Воскресенье';
+      break;
+    case 1: weekday = 'Понедельник';
+      break;
+    case 2: weekday = 'Вторник';
+      break;
+    case 3: weekday = 'Среда';
+      break;
+    case 4: weekday = 'Четверг';
+      break;
+    case 5: weekday = 'Пятница';
+      break;
+    case 6: weekday = 'Суббота';
+      break;
   }
   day = date.getDate()
   month = date.getMonth()
-  switch(month){
-    case 0 :month='Января';
-    break;
-    case 1 :month='Февраля';
-    break;
-    case 2 :month='Марта';
-    break;
-    case 3 :month='Апреля';
-    break;
-    case 4 :month='Мая';
-    break;
-    case 5 :month='Июня';
-    break;
-    case 6 :month='Июля';
-    break;
-    case 7 :month='Августа';
-    break;
-    case 8 :month='Сентября';
-    break;
-    case 9 :month='Октября';
-    break;
-    case 10 :month='Ноября';
-    break;
-    case 11 :month='Декабря';
-    break;
+  switch (month) {
+    case 0: month = 'Января';
+      break;
+    case 1: month = 'Февраля';
+      break;
+    case 2: month = 'Марта';
+      break;
+    case 3: month = 'Апреля';
+      break;
+    case 4: month = 'Мая';
+      break;
+    case 5: month = 'Июня';
+      break;
+    case 6: month = 'Июля';
+      break;
+    case 7: month = 'Августа';
+      break;
+    case 8: month = 'Сентября';
+      break;
+    case 9: month = 'Октября';
+      break;
+    case 10: month = 'Ноября';
+      break;
+    case 11: month = 'Декабря';
+      break;
   }
   year = date.getFullYear()
- datex =`<div align="center">${weekday} , ${day} ${month} ${year}г.</div>`
- return(datex)
+  datex = `<div align="center">${weekday} , ${day} ${month} ${year}г.</div>`
+  return (datex)
 }
 
 
-function getDataofcabinet(cab){
-  c=`<div align="center">Кабинет: ${cab}</div>`
+function getDataofcabinet(cab) {
+  c = `<div align="center">Кабинет: ${cab}</div>`
   /*socket.emit("getData", cab ,res =>{
 console.log(res)
   })*/
   date = getDate()
-table=`<div class="datagrid"><table>
+  table = `<div class="datagrid"><table>
 <thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
 <tbody><tr><td>1</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
 <tr class="alt"><td>2</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
@@ -110,8 +110,8 @@ table=`<div class="datagrid"><table>
 <tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
 </tbody>
 </table></div>`
-  x=c+date+table
-  return(x)
+  x = c + date + table
+  return (x)
 }
 
 // Создание полигонов
@@ -122,23 +122,24 @@ var createPolygon = async data => {
   }).addTo(map);
   polygon.dataid = data.id;
   //Отображение данных по клику на полигон
-    polygon.on('click', (e) => {
-      if (data.num!='Центральная Лестница' && data.num!='Центральный выход'){
-        var popup = L.popup()
-      .setLatLng(e.latlng)
-     .setContent(getDataofcabinet(data.num))
-      .openOn(map);
-      }
-      else{
-        if (data.num=='Центральная Лестница'){k='Центральная Лестница'}
-      else{k='Центральный выход'}
-        date = getDate()
-        var popup = L.popup()
+  polygon.on('click', (e) => {
+    if (data.num != 'Центральная Лестница' && data.num != 'Центральный выход') {
+      var popup = L.popup()
         .setLatLng(e.latlng)
-     .setContent(`<div align="center">${k}</div><div align="center">${date}</div>`)
-      .openOn(map);}
-    console.log(data.num)         
-  }); 
+        .setContent(getDataofcabinet(data.num))
+        .openOn(map);
+    }
+    else {
+      if (data.num == 'Центральная Лестница') { k = 'Центральная Лестница' }
+      else { k = 'Центральный выход' }
+      date = getDate()
+      var popup = L.popup()
+        .setLatLng(e.latlng)
+        .setContent(`<div align="center">${k}</div><div align="center">${date}</div>`)
+        .openOn(map);
+    }
+    console.log(data.num)
+  });
 };
 
 map.setView(center, zoom);
@@ -152,7 +153,7 @@ var get_data = params => {
     data: { params: params }
   });
   return result;
-};*/ 
+};*/
 var socket = io();
 
 var floor;
@@ -175,22 +176,22 @@ $(document).ready(() => {
     find()
   })
 
-  $('.rb').click(el =>  {
-    count =   $(el.target).val()
-      $(location).attr('href',`/${count}`)
+  $('.rb').click(el => {
+    count = $(el.target).val()
+    $(location).attr('href', `/${count}`)
   })
 });
 
 var polyline = null
 
 var find = () => {
-  if(polyline)
-    map.removeLayer(polyline) 
+  if (polyline)
+    map.removeLayer(polyline)
   let start = $("#start").val();
   let end = $("#end").val();
   let param = { start: start, end: end };
   socket.emit("FindRoute", param, data => {
-  console.log("TCL: find -> data", data)
+    console.log("TCL: find -> data", data)
     polyline = L.polyline(JSON.parse(data[0].route), {
       color: "red"
     }).addTo(map);

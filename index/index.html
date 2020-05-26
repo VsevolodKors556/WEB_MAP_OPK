@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Floor 1</title>
-    <meta charset="utf-8" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />  
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="./../public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-<link rel="stylesheet" href="./../index/style.css">
-<link rel="stylesheet" href="./../index/table.css">
+  <title>Floor 1</title>
+  <meta charset="utf-8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="./../public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <link rel="stylesheet" href="./../index/style.css">
+  <link rel="stylesheet" href="./../index/table.css">
 </head>
+
 <body>
   <br>
   <div class="container" id='fon'>
-  <div class="row">
+    <div class="row">
 
-    <div class="col-2">
-      <label for="start" class='font'>Начальная точка</label>
-      <br>
-      <select name="start" id="start" class="all"></select>
+      <div class="col-2">
+        <label for="start" class='font'>Начальная точка</label>
+        <br>
+        <select name="start" id="start" class="all"></select>
+      </div>
+      <div class="col-2">
+        <label for="end" class="font">Конечная точка</label>
+        <br>
+        <select name="end" id="end" class="all"></select>
+      </div>
+      <div class="col-2">
+        <br>
+        <button type="button" class="btn btn-large btn-block btn-success" id="find">Найти</button>
+        <br>
+      </div>
+      <div id="map" style="background-color:White; height: 80vh; width:98%; margin: auto;" />
     </div>
-    <div class="col-2">
-      <label for="end" class="font">Конечная точка</label>
-      <br>
-      <select name="end" id="end" class="all"></select>
+    <br>
+    <br>
+  </div>
+  <div class='container'>
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <div class="form-check form-check-inline">
+          <button class="btn btn-success rb" href="/" name="inlineRadioOptions" value="1" disabled>1</button>
+        </div>
+        <div class="form-check form-check-inline">
+          <button class="btn btn-success rb" href="/" name="inlineRadioOptions" value="2">2</button>
+        </div>
+        <div class="form-check form-check-inline">
+          <button class="btn btn-success rb" href="/" name="inlineRadioOptions" value="3">3</button>
+        </div>
+        <div class="form-check form-check-inline">
+          <button class="btn btn-success rb" href="/" name="inlineRadioOptions" value="4">4</button>
+        </div>
+      </div>
     </div>
-    <div class="col-2">
-      <br>
-      <button type="button" class="btn btn-large btn-block btn-success" id="find">Найти</button>
-      <br>
-    </div>
-    <div id="map" style="background-color:White; height: 80vh; width:98%; margin: auto;"/>
   </div>
-  <br>
-  <br>
-</div>
-  <div class='pages'>
-  <div class="form-check form-check-inline">
-    <button class="btn btn-success rb" href="/" name="inlineRadioOptions"  value="1" disabled>1</button>
-  </div>
-  <div class="form-check form-check-inline">
-    <button class="btn btn-success rb" href="/" name="inlineRadioOptions"  value="2">2</button>
-  </div>
-  <div class="form-check form-check-inline">
-    <button class="btn btn-success rb" href="/" name="inlineRadioOptions"  value="3">3</button>
-  </div>
-  <div class="form-check form-check-inline">
-    <button class="btn btn-success rb" href="/" name="inlineRadioOptions" value="4">4</button>
-
-  </div>
-  </div> 
   <script src="./../public/js/jquery-3.3.1.min.js"></script>
   <script src="./../public/js/socket.io.js"></script>
   <script src="./../public/js/async.min.js"></script>
   <script src="./../index/leaflet.js"></script>
   <script src="./../index/func1.js"></script>
 </body>
+
 </html>
