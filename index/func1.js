@@ -62,19 +62,15 @@ var createPolygon = async data => {
   polygon.dataid = data.id;
   //Отображение данных по клику на полигон
     polygon.on('click', (e) => {
-      if (data.num!='Центральная Лестница' && data.num!='Центральный выход'){
-        var popup = L.popup()
+      if (data.num!='Центральная Лестница'){
+      var popup = L.popup()
       .setLatLng(e.latlng)
      .setContent(getDataofcabinet(data.num))
       .openOn(map);
-      }
-      else{
-        if (data.num=='Центральная Лестница'){k='Центральная Лестница'}
-      else{k='Центральный выход'}
-        var popup = L.popup()
+      }else{var popup = L.popup()
         .setLatLng(e.latlng)
-     .setContent(`<p>${k}</p>`)
-      .openOn(map);}
+       .setContent('<p>Центральная Лестница</p>')
+        .openOn(map);}
     console.log(data.num)         
   }); 
 };
