@@ -90,7 +90,7 @@ function getDate() {
       break;
   }
   year = date.getFullYear()
-  datex = `<div align="center">${weekday} , ${day} ${month} ${year}г.</div>`
+  datex = `<div align="center">Сегодня Понедельник , 25 мая 2020г.</div>`
   return (datex)
 }
 
@@ -100,17 +100,49 @@ function getDataofcabinet(cab) {
   /*socket.emit("getData", cab ,res =>{
 console.log(res)
   })*/
-  date = getDate()
-  table = `<div class="datagrid"><table>
+  //date = getDate()
+  date = `<div align="center">Сегодня Понедельник , 25 мая 2020г.</div>`
+ switch(cab) {
+  case "303":
+    table = `<div class="datagrid"><table>
+  <thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
+  <tbody><tr><td>1</td><td>Литература</td><td>Э-19</td><td>Константинова Т.А.</td></tr>
+      <tr class="alt"><td>2</td><td>Литература</td><td>Э-19</td><td>Константинова Т.А.</td></tr>
+      <tr><td>3</td><td>Литература</td><td>Э-19</td><td>Константинова Т.А.</td></tr>
+      <tr class="alt"><td>4</td><td></td><td></td><td></td></tr>
+      <tr><td>5</td><td></td><td></td><td></td></tr>
+      <tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
+  </tbody>
+</table></div>` 
+break;
+case "307":
+    table=`<div class="datagrid"><table>
 <thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
-<tbody><tr><td>1</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
-<tr class="alt"><td>2</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
-<tr><td>3</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
-<tr class="alt"><td>4</td><td></td><td></td><td></td></tr>
-<tr><td>5</td><td></td><td></td><td></td></tr>
-<tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
+         <tbody><tr><td>1</td><td></td><td></td><td></td></tr>
+    <tr class="alt"><td>2</td><td></td><td></td><td></td></tr>
+                <tr><td>3</td><td></td><td></td><td></td></tr>
+    <tr class="alt"><td>4</td><td>МДК.01.01  ЭРВ</td><td>ТТО-17-18д</td><td>Казарцев В.О.</td></tr>
+                <tr><td>5</td><td>МДК.01.01  ЭРВ</td><td>ТТО-17-18д</td><td>Казарцев В.О.</td></tr>
+    <tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
 </tbody>
 </table></div>`
+break;
+case "312":
+  table=`<div class="datagrid"><table>
+  <thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
+           <tbody><tr><td>1</td><td>УП.01</td><td>Э-18-19д</td><td>Сандакова И.С.</td></tr>
+      <tr class="alt"><td>2</td><td>УП.01</td><td>Э-18-19д</td><td>Сандакова И.С.</td></tr>
+                  <tr><td>3</td><td>Физика</td><td>ОМД-19</td><td>Горожанкин Н.Н.</td></tr>
+      <tr class="alt"><td>4</td><td>УП.01</td><td>Э-18-19д</td><td>Сандакова И.С</td></tr>
+                  <tr><td>5</td><td></td><td></td><td></td></tr>
+      <tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
+  </tbody>
+</table></div>`
+break;
+default:
+  table=``
+  break;
+}
   x = c + date + table
   return (x)
 }

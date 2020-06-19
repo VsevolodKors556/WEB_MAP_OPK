@@ -25,11 +25,13 @@ html, body, #map
 
 #map{
     border-radius: 15px;
+    margin-bottom: 30px;
 }
 
 #pages{
-    margin: auto;
-    
+    margin-left: 50px;
+    margin-top: 3px;
+    margin-bottom: 30px;
 }
 
 .col-2{
@@ -44,5 +46,10 @@ html, body, #map
     width: 100%;
     border-radius: 10px;
 
+}
+
+.btn{
+    margin-top: 3px;
+    margin-bottom: 5px;
 }
 

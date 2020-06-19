@@ -89,7 +89,7 @@ function getDate() {
       break;
   }
   year = date.getFullYear()
-  datex = `<div align="center">${weekday} , ${day} ${month} ${year}г.</div>`
+  datex = `<div align="center">Сегодня Понедельник , 25 мая 2020г.</div>`
   return (datex)
 }
 
@@ -99,17 +99,37 @@ function getDataofcabinet(cab) {
   /*socket.emit("getData", cab ,res =>{
 console.log(res)
   })*/
-  date = getDate()
-  table = `<div class="datagrid"><table>
-<thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
-<tbody><tr><td>1</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
-<tr class="alt"><td>2</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
-<tr><td>3</td><td>Информатика</td><td>ИСП-19-1</td><td>Спицына О.И.</td></tr>
-<tr class="alt"><td>4</td><td></td><td></td><td></td></tr>
-<tr><td>5</td><td></td><td></td><td></td></tr>
-<tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
-</tbody>
-</table></div>`
+  //date = getDate()
+  date = `<div align="center">Сегодня Понедельник , 25 мая 2020г.</div>`
+  switch (cab) {
+    case "204":
+      table = `<div class="datagrid"><table>
+      <thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
+               <tbody><tr><td>1</td><td>МДК.01.01.</td><td>ОСА-18-2,19д</td><td>Горюнова М.В.</td></tr>
+          <tr class="alt"><td>2</td><td>МДК.01.01.</td><td>ОСА-18-2,19д</td><td>Горюнова М.В.</td></tr>
+                      <tr><td>3</td><td></td><td></td><td></td></tr>
+          <tr class="alt"><td>4</td><td></td><td></td><td></td></tr>
+                      <tr><td>5</td><td></td><td></td><td></td></tr>
+          <tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
+      </tbody>
+  </table></div>`
+      break;
+    case "208":
+      table = `<div class="datagrid"><table>
+      <thead><tr><th>№</th><th>Дисциплина</th><th>Группа</th><th>Преподаватель</th></tr></thead>
+               <tbody><tr><td>1</td><td>УП.01.01 КИП</td><td>ТЭО-18-2,19д</td><td>Дегтяренко Г.П.</td></tr>
+          <tr class="alt"><td>2</td><td>УП.01.01 КИП</td><td>ТЭО-18-2,19д</td><td>Дегтяренко Г.П.</td></tr>
+                      <tr><td>3</td><td>УП.01.01 КИП</td><td>ТЭО-18-2,19д</td><td>Дегтяренко Г.П.</td></tr>
+          <tr class="alt"><td>4</td><td></td><td></td><td></td></tr>
+                      <tr><td>5</td><td></td><td></td><td></td></tr>
+          <tr class="alt"><td>6</td><td></td><td></td><td></td></tr>
+      </tbody>
+  </table></div>`
+      break;
+    default:
+      table = ``
+      break;
+  }
   x = c + date + table
   return (x)
 }
